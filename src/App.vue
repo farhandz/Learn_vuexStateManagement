@@ -1,32 +1,33 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <h1>todo</h1>
+    <h3>pending todo:{{pendingTodo}}</h3>
+    <h3>SucessTodo:{{ SucsessTodo}}</h3>
+    <todoList />
+    <todoForm />
   </div>
 </template>
 
+<script>
+import { mapState, mapMutations, mapGetters } from 'vuex'
+import todoList from './components/TodoList'
+import todoForm from './components/TodoForm'
+export default {
+  components: {
+    todoList,
+    todoForm
+  },
+  computed: {
+    ...mapState(['nama', 'kelas', 'count']),
+    ...mapGetters(['pendingTodo', 'SucsessTodo'])
+  },
+  methods: {
+    ...mapMutations(['increment'])
+  }
+
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
