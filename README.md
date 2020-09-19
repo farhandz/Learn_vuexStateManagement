@@ -1,4 +1,4 @@
-# learnvuex
+# learnvuex(study Case todoApp)
 
 ## Project setup
 ```
